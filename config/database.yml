@@ -1,0 +1,21 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: siren
+  password: YNfIN1fVa2m25u
+
+development:
+  <<: *default
+  database: siren_development
+
+test:
+  <<: *default
+  database: siren_test
+
+production:
+  <<: *default
+  database: siren_production
+  username: siren
+  password: <%= ENV['SIREN_DATABASE_PASSWORD'] %>
